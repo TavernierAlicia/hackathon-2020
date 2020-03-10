@@ -1,1 +1,1 @@
-# hackaton-2020
+# hackathon-2020
