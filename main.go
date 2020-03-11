@@ -134,9 +134,6 @@ func cancelWorkshop(c *gin.Context) {
 //RECEPT FORMS
 func receptBookEvent(c *gin.Context) {
 
-	data := Preview{}
-
-	fmt.Println(data)
 	c.Request.ParseForm()
 
 	//make some conversion
@@ -156,6 +153,7 @@ func receptBookEvent(c *gin.Context) {
 		Name:    strings.Join(c.Request.PostForm["name"], " "),
 		Surname: strings.Join(c.Request.PostForm["surname"], " "),
 		Birth:   strings.Join(c.Request.PostForm["birth"], " "),
+		EventId: 1, //not still line this
 
 		ObjectName0:   strings.Join(c.Request.PostForm["objectname0"], " "),
 		ObjectType0:   strings.Join(c.Request.PostForm["type0"], " "),
@@ -182,9 +180,6 @@ func receptBookEvent(c *gin.Context) {
 
 func receptBookItem(c *gin.Context) {
 
-	data := Preview{}
-
-	fmt.Println(data)
 	c.Request.ParseForm()
 
 	ItemsForm{
@@ -193,15 +188,12 @@ func receptBookItem(c *gin.Context) {
 		Surname:    strings.Join(c.Request.PostForm["surname"], " "),
 		Birth:      strings.Join(c.Request.PostForm["birth"], " "),
 		PickupDate: strings.Join(c.Request.PostForm["pickupdate"], " "),
-		ItemId:     1,
+		ItemId:     1, //not still like this
 	}
 }
 
 func receptBookWork(c *gin.Context) {
 
-	data := Preview{}
-
-	fmt.Println(data)
 	c.Request.ParseForm()
 
 	WorkshopForm{
@@ -209,7 +201,7 @@ func receptBookWork(c *gin.Context) {
 		Name:       strings.Join(c.Request.PostForm["name"], " "),
 		Surname:    strings.Join(c.Request.PostForm["surname"], " "),
 		Birth:      strings.Join(c.Request.PostForm["birth"], " "),
-		WorkshopId: 1,
+		WorkshopId: 1, //not still like this
 	}
 }
 

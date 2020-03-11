@@ -5,6 +5,7 @@ type EventForm struct {
 	Name          string
 	Surname       string
 	Birth         string
+	EventId       int
 	ObjectName0   string
 	ObjectType0   string
 	ObjectState0  string
@@ -20,7 +21,6 @@ type EventForm struct {
 	ObjectState2  string
 	ObjectSize2   int
 	ObjectWeight2 int
-	EventId       int
 }
 
 type ItemsForm struct {
