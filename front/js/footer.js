@@ -20,7 +20,7 @@ function createFooter() {
             </div>
           </div>
         </div>
-        <p style="text-align: center;">Recycle&Me - Copyright 2020</p>
+        <p style="text-align: center;">Ressource&Me - Copyright 2020</p>
       </div>
     </footer>
   </html>

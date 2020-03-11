@@ -4,7 +4,7 @@ function addDateNear() {
   var today = new Date();
   var date = (today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()).toString()
   var datemax = (today.getFullYear()+'-'+(today.getMonth()+2)+'-'+today.getDate()).toString()
-  dateField.innerHTML += `<h2>Je viens chercher l'objet le...   <input type="date" id="pickupdate" name="trip-start" value="`+date+`" min="`+date+`" max="`+datemax+`"></h2>`;
+  dateField.innerHTML += `<h2>Je viens chercher l'objet le...   <input type="date" id="pickupdate" name="pickupdate" value="`+date+`" min="`+date+`" max="`+datemax+`"></h2>`;
 }
 
 
@@ -17,7 +17,7 @@ function addObjForm() {
     document.getElementById('add').innerHTML += `<div class="object">
     <div class="form-group row">
       <div class="col-sm-12">
-        <input type="text" name="objectname" class="form-control" id="objectname"
+        <input type="text" name="objectname`+numObject+`" class="form-control" id="objectname required"
           placeholder="Nom de l'objet">
         </div>
       </div>
@@ -25,7 +25,7 @@ function addObjForm() {
       <div class="form-group row">
         <label for="inlineFormCustomSelectPref" class="col-sm-2 col-form-label">Type d'objet:</label>
         <div class="col-sm-10">
-          <select class="custom-select" name="subject" id="inlineFormCustomSelectPref">
+          <select class="custom-select" name="type`+numObject+`" id="inlineFormCustomSelectPref">
             <option value="Textile">Textile (vêtements, linge de maison, chaussures..)</option>
             <option value="Vaisselle">Vaisselle (assiette, couverts, ustensiles..)</option>
             <option value="Jouets">Jouets (jeux de société, figurines, peluches..)</option>
@@ -41,7 +41,7 @@ function addObjForm() {
       <div class="form-group row">
         <label for="inlineFormCustomSelect" class="col-sm-2 col-form-label">Etat de l'objet:</label>
         <div class="col-sm-10">
-          <select class="custom-select" name="objectstate" id="inlineFormCustomSelect">
+          <select class="custom-select" name="objectstate`+numObject+`" id="inlineFormCustomSelect">
             <option value="Neuf">Neuf</option>
             <option value="Comme neuf">Comme neuf</option>
             <option value="Bon etat">Bon etat general</option>
@@ -52,16 +52,16 @@ function addObjForm() {
       </div>
 
       <div class="form-group row">
-        <label for="name" class="col-sm-2 col-form-label">Taille de l'objet (cm):</label>
+        <label for="objectsize" class="col-sm-2 col-form-label">Taille de l'objet (cm):</label>
         <div class="col-sm-10">
-          <input type="text" name="objectsize" class="form-control" id="objectsize" placeholder="ex: 23">
+          <input type="text" name="objectsize`+numObject+`" class="form-control" id="objectsize" placeholder="ex: 23">
         </div>
       </div>
 
       <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">Poids de l'objet (g):</label>
         <div class="col-sm-10">
-          <input type="text" name="objectweigth" class="form-control" id="objectweigth" placeholder="ex: 590">
+          <input type="text" name="objectweight`+numObject+`" class="form-control" id="objectweigth" placeholder="ex: 590">
         </div>
       </div>
   </div>

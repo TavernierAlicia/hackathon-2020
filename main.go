@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"strconv"
+	"strings"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -107,7 +111,7 @@ func confirmEvent(c *gin.Context) {
 	c.HTML(200, "confirm.html", data)
 }
 
-func confirWorkshop(c *gin.Context) {
+func confirmWorkshop(c *gin.Context) {
 	data := Preview{}
 	c.HTML(200, "confirm.html", data)
 }
@@ -128,36 +132,93 @@ func cancelWorkshop(c *gin.Context) {
 }
 
 //RECEPT FORMS
-/*func receptForm(c *gin.Context) {
+func receptBookEvent(c *gin.Context) {
 
 	data := Preview{}
 
 	fmt.Println(data)
 	c.Request.ParseForm()
 
-	mail := strings.Join(c.Request.PostForm["from"], " ")
-	name := strings.Join(c.Request.PostForm["name"], " ")
-	surname := strings.Join(c.Request.PostForm["surname"], " ")
-	subjectNum := strings.Join(c.Request.PostForm["subject"], " ")
-	cmdNumber := strings.Join(c.Request.PostForm["cmdNumber"], " ")
-	message := strings.Join(c.Request.PostForm["message"], " ")
-	pro := false
+	//make some conversion
+	objS0, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectsize0"], " "))
+	objW0, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectweight0"], " "))
+	objS1, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectsize1"], " "))
+	objW1, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectweight1"], " "))
+	objS2, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectsize2"], " "))
+	objW2, err := strconv.Atoi(strings.Join(c.Request.PostForm["objectweight2"], " "))
 
-	path := c.FullPath()
-
-	//Define is the client is a professionnal or not
-	if path == "/contact/form-pro" || path == "/professionnal/form-pro" || path == "/form-pro" {
-		pro = true
-	} else {
-		pro = false
+	if err != nil {
+		fmt.Println("Conversion Error")
 	}
 
+	EventForm{
+		Mail:    strings.Join(c.Request.PostForm["mail"], " "),
+		Name:    strings.Join(c.Request.PostForm["name"], " "),
+		Surname: strings.Join(c.Request.PostForm["surname"], " "),
+		Birth:   strings.Join(c.Request.PostForm["birth"], " "),
+
+		ObjectName0:   strings.Join(c.Request.PostForm["objectname0"], " "),
+		ObjectType0:   strings.Join(c.Request.PostForm["type0"], " "),
+		ObjectState0:  strings.Join(c.Request.PostForm["objectstate0"], " "),
+		ObjectSize0:   objS0,
+		ObjectWeight0: objW0,
+
+		ObjectName1:   strings.Join(c.Request.PostForm["objectname1"], " "),
+		ObjectType1:   strings.Join(c.Request.PostForm["subject1"], " "),
+		ObjectState1:  strings.Join(c.Request.PostForm["objectstate1"], " "),
+		ObjectSize1:   objS1,
+		ObjectWeight1: objW1,
+
+		ObjectName2:   strings.Join(c.Request.PostForm["objectname2"], " "),
+		ObjectType2:   strings.Join(c.Request.PostForm["subject2"], " "),
+		ObjectState2:  strings.Join(c.Request.PostForm["objectstate2"], " "),
+		ObjectSize2:   objS2,
+		ObjectWeight2: objW2,
+	}
+	path := c.FullPath()
+
+	//database()
+}
+
+func receptBookItem(c *gin.Context) {
+
+	data := Preview{}
+
+	fmt.Println(data)
+	c.Request.ParseForm()
+
+	ItemsForm{
+		Mail:       strings.Join(c.Request.PostForm["mail"], " "),
+		Name:       strings.Join(c.Request.PostForm["name"], " "),
+		Surname:    strings.Join(c.Request.PostForm["surname"], " "),
+		Birth:      strings.Join(c.Request.PostForm["birth"], " "),
+		PickupDate: strings.Join(c.Request.PostForm["pickupdate"], " "),
+		ItemId:     1,
+	}
+}
+
+func receptBookWork(c *gin.Context) {
+
+	data := Preview{}
+
+	fmt.Println(data)
+	c.Request.ParseForm()
+
+	WorkshopForm{
+		Mail:       strings.Join(c.Request.PostForm["mail"], " "),
+		Name:       strings.Join(c.Request.PostForm["name"], " "),
+		Surname:    strings.Join(c.Request.PostForm["surname"], " "),
+		Birth:      strings.Join(c.Request.PostForm["birth"], " "),
+		WorkshopId: 1,
+	}
+}
+
+/*
 	if response == true {
 		c.Redirect(http.StatusMovedPermanently, "/success")
 	} else {
 		c.Redirect(http.StatusMovedPermanently, "/error")
 	}
-}
 */
 
 //handle success page
@@ -198,13 +259,18 @@ func main() {
 		htmlSource+"index.html",
 		htmlSource+"404.html",
 		htmlSource+"about.html",
+		htmlSource+"legal.html",
+		htmlSource+"reinsertion.html",
 		htmlSource+"give.html",
 		htmlSource+"workshops_list.html",
 		htmlSource+"workshop.html",
 		htmlSource+"shop.html",
 		htmlSource+"item.html",
-		//htmlSource+"confirm.html",
-		//htmlSource+"cancel.html",
+		htmlSource+"confirm.html",
+		htmlSource+"cancel.html",
+		htmlSource+"contact.html",
+		htmlSource+"event.html",
+		htmlSource+"success.html",
 		htmlSource+"form-book_item.html",
 		htmlSource+"form-book_work.html",
 		htmlSource+"form-book_event.html",

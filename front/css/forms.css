@@ -19,8 +19,9 @@ div.beautyfy {
   width: 25px;
 }
 
-input[name="objectname"] {
-  font-size: 30px;
+
+input#objectname {
+    font-size: 30px;
 }
 
 .pickupdate input {
