@@ -1,0 +1,29 @@
+.object {
+ margin-left: 200px;
+ margin-top: 50px;
+}
+
+h2.bring, div.beautyfy {
+  margin-top: 50px;
+  margin-left: 200px;
+}
+div.beautyfy {
+  height: 2px;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.moreObject p img {
+  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+}
+
+input[name="objectname"] {
+  font-size: 30px;
+}
+
+.pickupdate input {
+  -webkit-appearance: none;
+  border: 0;
+}
