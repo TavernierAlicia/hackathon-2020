@@ -1,30 +1,24 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
-	"strings"
-
 	"github.com/gin-gonic/gin"
 )
 
 //HANDLE FORMS
 func bookItemForm(c *gin.Context) {
-	data := Preview{}
-	c.HTML(200, "form-book_item.html", data)
+	c.HTML(200, "form-book_item.html", nil)
 }
 
 func bookWorkForm(c *gin.Context) {
-	data := Preview{}
-	c.HTML(200, "form-book_work.html", data)
+	c.HTML(200, "form-book_work.html", nil)
 }
 
 func bookEventForm(c *gin.Context) {
-	data := Preview{}
-	c.HTML(200, "form-book_event.html", data)
+	c.HTML(200, "form-book_event.html", nil)
 }
 
 //RECEPT FORMS
+/*
 func receptBookEvent(c *gin.Context) {
 
 	c.Request.ParseForm()
@@ -100,7 +94,7 @@ func receptBookWork(c *gin.Context) {
 	database(data, req)
 }
 
-/*
+	//check send mail
 	if response == true {
 		c.Redirect(http.StatusMovedPermanently, "/success")
 	} else {

@@ -74,15 +74,21 @@ func main() {
 	//show item / book item
 	router.GET("/shop/item/:item_id", showItem)
 	//router.GET("/shop/:item_id/book", bookItemForm)
+	//temporary
+	router.GET("/shop/book", bookItemForm)
 	//router.POST("/shop/:item_id/book", receptBookItem)
 
 	//show event - book event
 	//router.GET("/events/:event_id", showEvent)
 	//router.GET("/events/:event_id/book", bookEventForm)
+	//temporary
+	router.GET("/events/book", bookEventForm)
 	//router.POST("/events/:event_id/book", receptBookEvent)
 
 	//book workshop
 	//router.GET("/works/:work_id/book", bookWorkForm)
+	//temporary
+	router.GET("/works/book", bookWorkForm)
 	//router.POST("/works/:work_id/book", receptBookWork)
 
 	//confirm booking
