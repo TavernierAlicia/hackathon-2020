@@ -12,12 +12,12 @@ import (
 
 var log *zap.Logger
 
-func testdb() {
+func DbConnect() *Data {
 	log, _ = zap.NewProduction()
 
 	defer log.Sync()
 	//// IMPORT CONFIG ////
-	viper.SetConfigName("conf")
+	viper.SetConfigName("config")
 	viper.SetConfigType("json")
 	viper.AddConfigPath(".")
 
@@ -39,24 +39,22 @@ func testdb() {
 	if err != nil {
 		log.Error("failed to connect database", zap.String("database", dbname),
 			zap.Int("attempt", 3), zap.Duration("backoff", time.Second))
-		return
+		//return
 
 	} else {
 		log.Info("Connexion etablished ", zap.String("database", dbname),
 			zap.Int("attempt", 3), zap.Duration("backoff", time.Second))
 	}
 
-	/*
-		data := &Results{}
-		//// Providers ////
-		err = db.Select(&data.Result, testquery)
-		if err != nil {
-			log.Error("failed to request database ", zap.String("database", err.Error()),
-				zap.String("query_name", "testquery"))
-		} else {
-			log.Info("Request Succeed ", zap.String("database", dbname),
-				zap.String("query_name", "testquery"))
-		}
-		fmt.Println(data)
-	*/
+	data := &Data{}
+	//// Providers ////
+	err = db.Select(&data.Items, DisplayAllItems)
+	if err != nil {
+		log.Error("failed to request database ", zap.String("database", err.Error()),
+			zap.String("query_name", "DisplayAllItems"))
+	} else {
+		log.Info("Request Succeed ", zap.String("database", dbname),
+			zap.String("query_name", "DisplayAllItems"))
+	}
+	return data
 }

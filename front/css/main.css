@@ -5,3 +5,34 @@
   margin: 0px;
   object-position: center;
 }
+
+.nav-link {
+  color: #2da63f;
+}
+
+footer {
+  background-color: #2da63f;
+}
+
+.footer {
+  color: white;
+  font-size: 30px;
+}
+
+.copyright{
+ background-color: #7ac943;
+}
+
+.copyright p, .copyright a {
+  color:white;
+  text-align: center;
+}
+
+.footerlink a {
+  color: white;
+}
+
+.footerlink a img{
+  height: 15px;
+  width: 15px;
+}

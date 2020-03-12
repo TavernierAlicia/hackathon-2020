@@ -1,5 +1,11 @@
 package main
 
+//Preview error struct
+type Preview struct {
+	Text       string
+	ErrorCause string
+}
+
 type EventForm struct {
 	Mail          string
 	Name          string
@@ -70,22 +76,20 @@ type Event struct {
 	BilledReccurwi float64 `db:"ibilled_reccurw"`
 	CreationDatewi string  `db:"iCREATION_DATEw"`
 }
-
-type Items struct {
-	TeamName       string  `db:"name"`
-	NbCallswi      int     `db:"inbcallsw"`
-	Idurationwi    float64 `db:"iiduration_minutesw"`
-	Odurationwi    float64 `db:"ioduration_minutesw"`
-	TMCwi          float64 `db:"iweekly_TMC"`
-	Ocostwi        float64 `db:"iocost_eurosw"`
-	Creditwi       float64 `db:"icreditw"`
-	CreditLimitwi  float64 `db:"icredit_limitw"`
-	Userswi        int64   `db:"iusersw"`
-	Numberswi      string  `db:"inumbersw"`
-	BilledReccurwi float64 `db:"ibilled_reccurw"`
-	CreationDatewi string  `db:"iCREATION_DATEw"`
+*/
+type items struct {
+	Id       int     `db:"id"`
+	Name     string  `db:"name"`
+	Type     string  `db:"type"`
+	Location string  `db:"location"`
+	Price    float64 `db:"price"`
 }
 
+type Data struct {
+	Items []*items
+}
+
+/*
 type Item struct {
 	TeamName       string  `db:"name"`
 	NbCallswi      int     `db:"inbcallsw"`

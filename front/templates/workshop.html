@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Recycle&Vous - J'apprends</title>
+  <link rel="stylesheet" href="/front/css/forms.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="/front/js/nav.js"></script>
+  <script src="/front/js/objform.js"></script>
+</head>
+
+<body>
+  <h1>Les ateliers</h1>
+{{range .Workshops}}
+  <div class="card mb-7" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="/front/pictures/workshops/{{.Picture}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{.Name}}</h5>
+          <p class="card-text">{{.Description}}</p>
+          <p> Du {{.DateBegin}} au {{.DateEnd}}</p>
+          <a href="/works/{{.Id}}/book">
+            <div>Je m'inscrit!</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{{end}}
+
+<!-- DEMO -->
+<div class="card mb-7" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="/front/pictures/workshops/menuiserie.jpg" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Atelier menuiserie - apres-midi</h5>
+        <p class="card-text">Apprenez a reparer vos meubles avec notre animateur Thierry.</p>
+        <p> Du 12/04/2020 - 13h00 au 12/04/2020 - 17h00</p>
+        <a href="/works/{{.Id}}/book">
+          <div>Je m'inscrit!</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer><script src="../js/footer.js"></script></footer>
+
+</body>

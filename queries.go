@@ -78,7 +78,7 @@ const (
 )
 
 const (
-	DisplayAllItems = `SELECT * FROM items WHERE availlable=1`
+	DisplayAllItems = `SELECT id, name, type, location, price  FROM items WHERE availlable=1`
 )
 
 const (

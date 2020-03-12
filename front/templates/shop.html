@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Recycle&Vous - Boutique</title>
+  <link rel="stylesheet" href="/front/css/forms.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="/front/js/nav.js"></script>
+  <script src="/front/js/objform.js"></script>
+</head>
+
+<body>
+<h1>Boutique</h1>
+<a href="/shop/type/:type">Trier par type</a>
+<a href="/shop/location/:location">Trier par local</a>
+
+{{range .Items}}
+  <div class="card" style="width: 18rem;">
+    <a href="/shop/item/{{.Id}}">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-title">{{.Name}}</p>
+        <p class="card-text">{{.Type}}</p>
+        <p class="card-text">{{.Location}}, <p class="card-text"> {{.Price}}</p></p>
+      </div>
+    </a>
+  </div>
+{{end}}
+
+<!-- DEMO -->
+<div class="card" style="width: 18rem;">
+  <a href="/shop/item/{{.Id}}">
+    <img src="/front/pictures/items/cle.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">Cle a molette</h3>
+      <p class="card-text">Quincaillerie/Outillage</p>
+      <p class="card-text">Paris 19<p class="card-text"> 5,00€</p></p>
+    </div>
+  </a>
+</div>
+
+</body>
+<footer><script src="../js/footer.js"></script></footer>

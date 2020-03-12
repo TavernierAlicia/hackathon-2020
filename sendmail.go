@@ -11,7 +11,7 @@ func SendMail(mail string, name string, surname string, subject string, cmdNumbe
 	to := ""
 
 	//configure sending mailbox
-	from := "service-ressourceetvous@gmail.com"
+	from := "service-recycleetvous@gmail.com"
 	pass := "RessourceetVous2020"
 
 	//set message
